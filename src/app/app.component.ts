@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  displayRecipes: boolean = true;
 
+  onRecipeShowedHidden(value: boolean){
+    this.displayRecipes = value;
+  }
 }
