@@ -8,21 +8,21 @@ export class RecipeService{
     recipeSelected = new EventEmitter<Recipe>();
 
     private recipes: Recipe[] = [
-        new Recipe("Test Recipeeeeeee",
+        new Recipe(1, "Test Recipeeeeeee",
          "This is a test recipe",
          "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/image_data/file/108320/s960_pizza-slice.jpg",
          [
             new Ingredient("Meat", 1),
             new Ingredient("Fries", 20)
          ]),
-         new Recipe("Test Recipe",
+         new Recipe(2, "Test Recipe",
          "This is a test recipe",
          "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/image_data/file/108320/s960_pizza-slice.jpg",
          [
             new Ingredient("Buns", 2),
             new Ingredient("Mear", 1)
          ]),
-         new Recipe("Recipe Test",
+         new Recipe(3, "Recipe Test",
          "This is a test recipe",
          "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/image_data/file/108320/s960_pizza-slice.jpg",
          [
@@ -37,6 +37,10 @@ export class RecipeService{
 
     getRecipes(): Recipe[]{
         return this.recipes.slice();
+    }
+
+    getRecipe(id: number): Recipe{
+        return this.recipes.find(x => x.id === id);
     }
 
     addIngredientsToShoppingList(ingredients: Ingredient[]){
